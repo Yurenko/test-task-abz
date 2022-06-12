@@ -1,0 +1,34 @@
+@use '../../index.sass'
+.wrapper
+    width: 100%
+    padding: 20px
+    margin: 0 0 16px 0
+    background-color: #fff
+    border-radius: 10px
+    display: flex
+    flex-direction: column
+    align-items: center
+    @media (min-width: index.$layout-breakpoint-medium)
+        width: 43.2%
+        margin: 0
+        margin-bottom: 16px
+    @media (min-width: index.$layout-breakpoint-large)
+        width: 26.8%
+        margin: 0
+        margin-bottom: 16px
+
+    .icon
+        width: 70px
+        height: 70px
+        border-radius: 50%
+
+    .name
+        padding: 20px 0
+
+    .scroll
+        padding: 3px 16px
+        pointer-events: auto !important
+
+        &:hover
+            visibility: hidden
+            opacity: 1

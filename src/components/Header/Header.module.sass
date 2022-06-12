@@ -1,0 +1,39 @@
+@use '../../index.sass' 
+
+.wrapperHeader
+    height: 60px
+    width: 100%
+    background-color: #fff
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 20
+
+    .content
+        display: flex
+        justify-content: space-between
+        align-items: center
+        margin: 0 auto
+        width: 1170px
+        height: 60px
+
+        @media (max-width: index.$layout-breakpoint-large)
+            width: calc( 100% - 120px )
+            padding: 0 60px
+        @media (min-width: index.$layout-breakpoint-large)
+            max-width: 1170px
+            width: 100%
+
+        @media (max-width: index.$layout-breakpoint-medium)
+            width: calc( 100% - 60px )
+            padding: 0 30px
+
+        @media (max-width: index.$layout-breakpoint-small)
+            width: calc( 100% - 32px )
+            padding: 0 16px
+
+        .btn
+            a
+                margin-right: 10px
+                &:last-child
+                    margin-right: 0px

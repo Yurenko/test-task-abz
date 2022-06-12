@@ -1,0 +1,21 @@
+@use '../../index.sass' 
+
+.wrapperUsers
+    margin-top: 140px
+    margin-right: 16px
+    margin-left: 16px
+    @media (min-width: index.$layout-breakpoint-medium)
+        margin-right: 32px
+        margin-left: 32px
+    @media (min-width: index.$layout-breakpoint-large)
+        margin-right: 60px
+        margin-left: 60px
+
+    .userCards
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+
+    button
+        width: 120px
+        margin-top: 50px

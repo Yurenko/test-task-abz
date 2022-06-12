@@ -1,0 +1,122 @@
+@use './../../index.sass'
+
+img
+	margin: 0 auto
+
+.error
+	display: block
+	text-align: left
+	margin-left: 16px
+	color: #CB3D40
+
+.form
+	display: block
+	max-width: 380px
+	margin: 0 auto
+
+.common
+	margin: 50px 0
+	height: 54px
+	width: 100%
+	position: relative
+
+	label
+		position: absolute
+		left: 16px
+		top: 50%
+		transform: translateY(-50%)
+		color: #7E7E7E
+		display: none
+
+	input
+		background: transparent
+		box-sizing: border-box
+		padding: 14px 0 14px 16px
+		display: inline-block
+		border: none
+		height: 54px
+		width: 100%
+		border: 1px solid #D0CFCF
+		border-radius: 4px
+		border-radius: 4px
+		color: #000
+		&:focus
+			outline: none
+		&:not(:placeholder-shown) ~ label
+			display: inline
+			background-color: index.$bacground-color
+			transform: translateY(-155%)
+		&:invalid ~ label
+			color: #CB3D40
+		&:invalid
+			border: 2px solid #CB3D40
+			border-radius: 4px
+		&:invalid ~ .helperText:after
+			display: block
+
+	.helperText
+		text-align: left
+		margin-left: 16px
+		display: block
+		color: #7E7E7E
+		&:after
+			content: 'Error text'
+			display: none
+			font-size: 12px
+			color: #CB3D40
+
+.position
+	text-align: left
+	color: rgba(0, 0, 0, 0.87)
+	font-weight: 400
+
+.upload
+	display: flex
+	margin: 50px 0
+	max-width: 380px
+
+	label
+		display: block
+		margin-right: 24px
+		position: relative
+		width: 100%
+
+		input
+			width: 100%
+			height: 54px
+			border: 1px solid #D0CFCF
+			border-radius: 4px
+			cursor: pointer
+			color: rgba(0, 0, 0, 0)
+			&:invalid
+				border: 2px solid #CB3D40
+				border-radius: 4px
+			&::file-selector-button
+				visibility: hidden
+			&:before
+				position: absolute
+				left: 0
+				top: 2px
+				content: 'Upload'
+				font-family: Nunito
+				font-size: 16px
+				font-weight: 400
+				line-height: 24px
+				color: rgba(0, 0, 0, 0.87)
+				text-align: center
+				padding: 15px 14px
+				display: inline-block
+				border: 1px solid rgba(0, 0, 0, 0.87)
+				border-radius: 4px 0px 0px 4px
+
+		span
+			position: absolute
+			left: 99px
+			top: 2px
+			font-size: 16px
+			font-weight: 400
+			line-height: 24px
+			color: #7E7E7E
+			text-align: center
+			padding: 15px 14px
+			display: inline-block
