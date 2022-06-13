@@ -1,20 +1,26 @@
-import { useState } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import styles from './App.module.sass'
-import FormRegisterContainer from './components/FormRegister/FormRegisterContainer'
-import Users from './components/Users/Users'
-import MainPage from './components/MainPage/MainPage'
+import PreLoader from './components/PreLoader/PreLoader'
+
+const MainPage = lazy(() => import('./components/MainPage/MainPage'))
+const Users = lazy(() => import('./components/Users/Users'))
+const FormRegisterContainer = lazy(
+	() => import('./components/FormRegister/FormRegisterContainer')
+)
 
 function App() {
 	const [addedNewUser, setAddedNewUser] = useState(false)
-	
+
 	return (
 		<div className={styles.wrapper}>
-			<MainPage />
-			<Users addedNewUser={addedNewUser} />
-			<FormRegisterContainer
-				addedNewUser={addedNewUser}
-				setAddedNewUser={setAddedNewUser}
-			/>
+			<Suspense fallback={<PreLoader />}>
+				<MainPage />
+				<Users addedNewUser={addedNewUser} />
+				<FormRegisterContainer
+					addedNewUser={addedNewUser}
+					setAddedNewUser={setAddedNewUser}
+				/>
+			</Suspense>
 		</div>
 	)
 }

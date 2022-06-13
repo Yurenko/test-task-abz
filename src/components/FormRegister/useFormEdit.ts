@@ -4,6 +4,7 @@ import { useMutation, useQuery } from 'react-query'
 import { IFormEditInput, IPositions } from './form-register.interface'
 import { AuthService } from '../../services/auth/auth.service'
 import Cookies from 'js-cookie'
+import { errorCatch } from '../../api/api.helpers'
 
 export const useFormEdit = (setAddedNewUser: any) => {
 	const { isLoading, data: positions } = useQuery(
@@ -26,7 +27,7 @@ export const useFormEdit = (setAddedNewUser: any) => {
 			),
 		{
 			onError(error) {
-				alert(error)
+				alert(errorCatch(error))
 			},
 		}
 	)
@@ -38,7 +39,7 @@ export const useFormEdit = (setAddedNewUser: any) => {
 			await mutateAsync(data)
 			setAddedNewUser(true)
 		} catch (error) {
-			alert(error)
+			alert(errorCatch(error))
 		}
 	}
 

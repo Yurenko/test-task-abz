@@ -1,5 +1,6 @@
 import { SetStateAction } from 'react'
 import { useQuery } from 'react-query'
+import { errorCatch } from '../../api/api.helpers'
 import { UserService } from '../../services/user/user.service'
 
 export const useUsers = (
@@ -22,7 +23,7 @@ export const useUsers = (
 				setTotalPage(data.total_pages)
 			},
 			onError(error) {
-				alert(error)
+				alert(errorCatch(error))
 			},
 		}
 	)

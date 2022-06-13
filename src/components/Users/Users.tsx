@@ -16,7 +16,7 @@ const Users: FC<{ addedNewUser: boolean }> = ({ addedNewUser }) => {
 	useEffect(() => {
 		setMoreUsers([])
 		refetch()
-	}, [addedNewUser, page])
+	}, [page, addedNewUser])
 
 	const handleGetUsers = () => {
 		setPage((page) => page + 1)
