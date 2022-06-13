@@ -11,12 +11,21 @@ const Users: FC<{ addedNewUser: boolean }> = ({ addedNewUser }) => {
 	const [totalPage, setTotalPage] = useState<number | null>(null)
 	const [moreUsers, setMoreUsers] = useState<IUser[]>([])
 
-	const { isLoading, refetch } = useUsers(page, setMoreUsers, setTotalPage)
+	const { isLoading, refetch } = useUsers(
+		page,
+		setMoreUsers,
+		setTotalPage,
+		addedNewUser
+	)
 
 	useEffect(() => {
-		setMoreUsers([])
 		refetch()
-	}, [page, addedNewUser])
+	}, [page])
+
+	useEffect(() => {
+		setPage(1)
+		if (page === 1) refetch()
+	}, [addedNewUser])
 
 	const handleGetUsers = () => {
 		setPage((page) => page + 1)

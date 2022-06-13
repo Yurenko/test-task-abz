@@ -12,14 +12,17 @@ export const useUsers = (
 	setTotalPage: {
 		(value: SetStateAction<number | null>): void
 		(arg0: number): void
-	}
+	},
+	addedNewUser: boolean
 ) => {
 	const { isLoading, refetch } = useQuery(
 		'users',
 		() => UserService.getUsers(page),
 		{
 			onSuccess: ({ data }) => {
-				setMoreUsers((prev) => [...prev, ...data.users])
+				setMoreUsers((prev) =>
+					addedNewUser ? [...data.users] : [...prev, ...data.users]
+				)
 				setTotalPage(data.total_pages)
 			},
 			onError(error) {
