@@ -11,8 +11,8 @@ const Cards: FC<IUser> = ({ email, name, phone, photo, position }, ...rest) => {
 			<div className={styles.name}>{name}</div>
 			<div>
 				<div>{position}</div>
-				<div>{email}</div>
-				<CustomizedTooltips title={phone} />
+				<CustomizedTooltips title={email} />
+				<div>{phone}</div>
 			</div>
 		</div>
 	)
